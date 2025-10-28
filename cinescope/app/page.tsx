@@ -3,9 +3,18 @@ import MovieCarousel from "@/components/MovieCarousel";
 import SearchBar from "@/components/SearchBar";
 import { Movie } from "@/libs/types";
 
+export const dynamic = 'force-dynamic';
+
 export default async function Home() {
-  const data = await getTrendingMovies();
-  const movies: Movie[] = data.results;
+  let movies: Movie[] = [];
+
+  try {
+    const data = await getTrendingMovies();
+    movies = data.results;
+  } catch (error) {
+    console.error('Failed to fetch trending movies:', error);
+    // Return empty array, component will handle gracefully
+  }
 
   return (
     <main className="min-h-screen bg-gradient-to-br from-gray-900 via-gray-800 to-black">
