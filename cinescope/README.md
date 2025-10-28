@@ -81,7 +81,85 @@ cinescope/
 - **Language**: TypeScript
 - **Styling**: Tailwind CSS
 - **API**: The Movie Database (TMDB)
+- **Carousel**: Swiper.js
 - **Deployment**: Vercel (recommended)
+
+## Deployment
+
+### Vercel (Recommended)
+
+1. **Connect Repository**:
+   - Go to [Vercel](https://vercel.com) and sign in
+   - Click "New Project"
+   - Import your GitHub repository
+
+2. **Environment Variables**:
+   - In Vercel dashboard, go to your project settings
+   - Navigate to "Environment Variables"
+   - Add: `TMDB_API_KEY` with your TMDB API key
+
+3. **Deploy**:
+   - Vercel will automatically detect Next.js and deploy
+   - Your app will be live at `your-project.vercel.app`
+
+### Manual Deployment Options
+
+#### Netlify
+```bash
+npm run build
+```
+- Upload the `.next` folder to Netlify
+- Set environment variable: `TMDB_API_KEY`
+
+#### Railway
+```bash
+npm run build
+npm run start
+```
+- Connect your repository
+- Set environment variable: `TMDB_API_KEY`
+
+#### Docker
+```dockerfile
+FROM node:18-alpine
+WORKDIR /app
+COPY package*.json ./
+RUN npm ci
+COPY . .
+RUN npm run build
+EXPOSE 3000
+CMD ["npm", "start"]
+```
+
+### Environment Setup
+
+Make sure to set your TMDB API key:
+```bash
+# For local development
+cp .env.example .env.local
+
+# For production, set in your hosting platform
+TMDB_API_KEY=your_actual_api_key_here
+```
+
+### Build Commands
+
+```bash
+# Install dependencies
+npm install
+
+# Development
+npm run dev
+
+# Build for production
+npm run build
+
+# Start production server
+npm run start
+
+# Lint code
+npm run lint
+```
 
 ## Learn More
 
