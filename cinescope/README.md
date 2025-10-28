@@ -1,24 +1,87 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Cinescope 🎬
+
+A modern movie discovery app built with Next.js, TypeScript, and Tailwind CSS. Browse trending movies, search for your favorites, and explore detailed movie information powered by The Movie Database (TMDB).
+
+## Features
+
+- 🎯 **Trending Movies**: Discover the latest trending movies
+- 🔍 **Search Functionality**: Search for movies by title
+- 📱 **Responsive Design**: Optimized for all devices
+- 🎨 **Modern UI**: Clean, dark theme with smooth animations
+- ⚡ **Fast Performance**: Built with Next.js 16 and optimized for speed
+- 🔒 **Type Safety**: Full TypeScript support with proper interfaces
 
 ## Getting Started
 
-First, run the development server:
+### Prerequisites
 
+- Node.js 18+
+- npm, yarn, pnpm, or bun
+
+### Installation
+
+1. Clone the repository:
+```bash
+git clone <repository-url>
+cd cinescope
+```
+
+2. Install dependencies:
+```bash
+npm install
+# or
+yarn install
+# or
+pnpm install
+```
+
+3. Set up environment variables:
+```bash
+cp .env.example .env.local
+```
+
+4. Get your TMDB API key from [TMDB Settings](https://www.themoviedb.org/settings/api) and add it to `.env.local`:
+```env
+TMDB_API_KEY=your_tmdb_api_key_here
+```
+
+5. Run the development server:
 ```bash
 npm run dev
 # or
 yarn dev
 # or
 pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+6. Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Project Structure
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+```
+cinescope/
+├── app/
+│   ├── api/search/          # Search API route
+│   ├── movie/[id]/          # Movie detail pages
+│   ├── layout.tsx           # Root layout
+│   └── page.tsx             # Home page
+├── components/
+│   ├── MovieCard.tsx        # Movie card component
+│   ├── SearchBar.tsx        # Search functionality
+│   └── LoadingSpinner.tsx   # Loading indicator
+├── libs/
+│   ├── tmdb.ts              # TMDB API functions
+│   └── types.ts             # TypeScript interfaces
+└── public/                  # Static assets
+```
+
+## Tech Stack
+
+- **Framework**: Next.js 16 (App Router)
+- **Language**: TypeScript
+- **Styling**: Tailwind CSS
+- **API**: The Movie Database (TMDB)
+- **Deployment**: Vercel (recommended)
 
 ## Learn More
 
