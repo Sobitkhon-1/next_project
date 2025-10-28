@@ -11,9 +11,7 @@ const nextConfig: NextConfig = {
       },
     ],
   },
-  turbopack: {
-    root: './',
-  },
+  outputFileTracingRoot: process.env.VERCEL ? undefined : process.cwd(),
 };
 
 export default nextConfig;
